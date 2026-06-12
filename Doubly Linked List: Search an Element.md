@@ -33,10 +33,65 @@ To write a Python program that:
 
 ---
 
-## 💻 Program
-Add Code here
+## 💻 Program:
+```python
+class Nodeq:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+        self.prev = None
 
-## Sample Output
+class DoublyLinkedList:
+    def __init__(self):
+        self.head = None
 
-## Result
+    def insert_beginning(self, data):
+        new_node = Nodeq(data)
+        if self.head is not None:
+            self.head.prev = new_node
+            new_node.next = self.head
+        self.head = new_node
+
+    def insert_end(self, data):
+        new_node = Nodeq(data)
+        if self.head is None:
+            self.head = new_node
+            return
+
+        temp = self.head
+        while temp.next:
+            temp = temp.next
+
+        temp.next = new_node
+        new_node.prev = temp
+
+    def search(self, data):
+        temp = self.head
+        while temp:
+            if temp.data == data:
+                return True
+            temp = temp.next
+        return False
+
+dll = DoublyLinkedList()
+
+dll.insert_beginning(20)
+dll.insert_beginning(10)
+dll.insert_end(30)
+dll.insert_end(40)
+
+x = 30
+
+if dll.search(x):
+    print("Element found")
+else:
+    print("Element not found")
+```
+
+## Output:
+<img width="465" height="155" alt="image" src="https://github.com/user-attachments/assets/23914868-1132-436e-895b-691a129ebe43" />
+
+
+## Result:
+Thus,the program is executed successfully.
 
