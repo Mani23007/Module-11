@@ -35,11 +35,55 @@ To write a Python program that:
 
 ---
 
-## 💻 Program
-Add code here
+## 💻 Program:
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
-## Sample Input & Output
+class LinkedList:
+    def __init__(self):
+        self.head = None
 
-## Result
+    def append(self, data):
+        new_node = Node(data)
+
+        if self.head is None:
+            self.head = new_node
+            return
+
+        temp = self.head
+        while temp.next:
+            temp = temp.next
+        temp.next = new_node
+
+    def get_middle_recursive(self, slow, fast):
+        if fast is None or fast.next is None:
+            return slow
+
+        return self.get_middle_recursive(slow.next, fast.next.next)
+
+    def find_middle(self):
+        middle = self.get_middle_recursive(self.head, self.head)
+        return middle.data
+
+n = int(input("Enter number of nodes: "))
+values = list(map(int, input().split()))
+
+ll = LinkedList()
+
+for value in values:
+    ll.append(value)
+
+print("Middle element:", ll.find_middle())
+```
+
+## Output:
+<img width="495" height="196" alt="image" src="https://github.com/user-attachments/assets/8d5d2846-67e2-4868-a526-fff41e40a3a1" />
+
+
+## Result:
+Thus,the program is executed successfully.
 
 
