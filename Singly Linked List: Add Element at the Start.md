@@ -33,9 +33,44 @@ To write a Python program that adds a **new element** at the **start** of a sing
 
 ---
 
-## Program
-Add Code Here
-## Sample Output
+## Program:
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
-## Result
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    def push_front(self, newElement):
+        newNode = Node(newElement)
+        newNode.next = self.head
+        self.head = newNode
+
+    def PrintList(self):
+        if self.head is None:
+            print("The list is empty.")
+        else:
+            temp = self.head
+            while temp:
+                print(temp.data, end=" ")
+                temp = temp.next
+
+MyList = LinkedList()
+
+MyList.push_front(10)
+MyList.push_front(20)
+MyList.push_front(30)
+MyList.push_front(40)
+
+MyList.PrintList()
+```
+## Output:
+<img width="469" height="131" alt="image" src="https://github.com/user-attachments/assets/ffdf79a1-84c9-463c-82d6-5478dc8d269b" />
+
+
+## Result:
+Thus,the program is executed successfully.
 
