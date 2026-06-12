@@ -34,10 +34,58 @@ To write a Python program that:
 
 ---
 
-## 💻 Program
-Add Code here
+## 💻 Program:
+```python
+class Node:
+    def __init__(self, data):
+        self.item = data
+        self.nref = None
+        self.pref = None
 
-## Sample Output
+class DoublyLinkedList:
+    def __init__(self):
+        self.start_node = None
 
-## Result
+    def insert_in_emptylist(self, data):
+        if self.start_node is None:
+            new_node = Node(data)
+            self.start_node = new_node
+
+    def insert_at_end(self, data):
+        if self.start_node is None:
+            self.insert_in_emptylist(data)
+        else:
+            n = self.start_node
+            while n.nref is not None:
+                n = n.nref
+
+            new_node = Node(data)
+            n.nref = new_node
+            new_node.pref = n
+
+    def traverse_list(self):
+        if self.start_node is None:
+            print("List has no elements")
+        else:
+            n = self.start_node
+            while n is not None:
+                print(n.item, end=" ")
+                n = n.nref
+
+dll = DoublyLinkedList()
+
+dll.insert_at_end(10)
+dll.insert_at_end(20)
+dll.insert_at_end(30)
+dll.insert_at_end(40)
+
+dll.traverse_list()
+```
+
+## Output:
+<img width="454" height="110" alt="image" src="https://github.com/user-attachments/assets/c42fadfd-bd03-45f6-84b9-703d9c09395d" />
+
+
+## Result:
+Thus,the program is executed successfully.
 
